@@ -17,7 +17,7 @@ app.use(bodyParser.json()); // for parsing application/json
 // it helps log into the syetem
 app.use(cors());
 
-app.use("/items", itemsRoutes);
+app.use("/", itemsRoutes);
 
 //spining database
 mongoose
