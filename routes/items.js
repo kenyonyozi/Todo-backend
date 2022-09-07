@@ -24,4 +24,14 @@ router.post("/", async (req, res) => {
     return res.send({data})
 });
 
+//delete
+router.delete('/deleteitem/:id',async (req,res)=>{
+    try {
+        await Item.deleteOne({_id:req.params.id})
+        return res.send({message: 'Item deleted successfully'})
+    } catch (error) {
+        res.status(400).send('unable to delete item')
+    }
+});
+
 module.exports = router;
