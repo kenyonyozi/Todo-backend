@@ -17,4 +17,11 @@ router.get("/", async (req , res) => {
 );
 });
 
+//post
+router.post("/", async (req, res) => {
+    let newItem = new Item(req.body);
+   const data = await newItem.save();
+    return res.send({data})
+});
+
 module.exports = router;
