@@ -1,0 +1,30 @@
+{
+  "name": "todo-backend",
+  "version": "1.0.0",
+  "description": "backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenyonyozi/Todo-backend.git"
+  },
+  "author": "nina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kenyonyozi/Todo-backend/issues"
+  },
+  "homepage": "https://github.com/kenyonyozi/Todo-backend#readme",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.3",
+    "cors": "^2.8.5",
+    "nodemon": "^2.0.19",
+    "express-validator": "^5.3.1"
+  },
+  "devDependencies": {}
+}
