@@ -7,7 +7,7 @@ const Item = require("../models/item");
 router.use(expressValidator());
 
 //get
-router.get("/", async (req , res) => {
+router.get("/items", async (req , res) => {
     const items = await Item.find();
    res.send({
     success: true,
@@ -18,14 +18,14 @@ router.get("/", async (req , res) => {
 });
 
 //post
-router.post("/", async (req, res) => {
+router.post("/items", async (req, res) => {
     let newItem = new Item(req.body);
    const data = await newItem.save();
     return res.send({data})
 });
 
 //delete
-router.delete('/deleteitem/:id',async (req,res)=>{
+router.delete('/items/deleteitem/:id',async (req,res)=>{
     try {
         await Item.deleteOne({_id:req.params.id})
         return res.send({message: 'Item deleted successfully'})
