@@ -4,6 +4,10 @@ const itemSchema = mongoose.Schema({
         type: String,
         required:true
     },
+    done:{
+        type: Boolean,
+        required:true
+    },
     
 });
 
