@@ -7,6 +7,7 @@ const itemSchema = mongoose.Schema({
     done:{
         type: Boolean,
         required:true
+        
     },
     
 });
