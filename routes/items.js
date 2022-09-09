@@ -19,19 +19,49 @@ router.get("/items", async (req , res) => {
 
 //post
 router.post("/items", async (req, res) => {
-    let newItem = new Item(req.body);
+    try{
+        let newItem = new Item(req.body);
    const data = await newItem.save();
-    return res.send({data})
+    return res.send({data,
+         message: 'Todo added successfully'})
+    } catch (error) {
+        res.status(400).send('unable to post todo')
+    }
 });
 
 //delete
 router.delete('/items/deleteitem/:id',async (req,res)=>{
     try {
         await Item.deleteOne({_id:req.params.id})
-        return res.send({message: 'Item deleted successfully'})
+        return res.send({message: 'Todo deleted successfully'})
     } catch (error) {
-        res.status(400).send('unable to delete item')
+        res.status(400).send('unable to delete todo')
     }
 });
+
+//update
+router.put("/items/:id", async (req, res) => {
+      try {
+        const data = req.body;
+      await Item.findOneAndUpdate({
+          _id: req.params.id
+        }, 
+        data
+      );
+      return res.status(200).send({ 
+        status: 200,
+        message: 'item updated successfully',
+        data 
+    });
+        
+      } catch (error) {
+        return res.status(400).send({ 
+            status: 400,
+            message: 'Oops failed to update the item',
+            error
+          });
+      }
+  });
+
 
 module.exports = router;
